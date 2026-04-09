@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+  <button id="resizeBtn">Change Size</button>
+  <div id="container"></div>
+
+<script>
+    const container = document.querySelector("#container");
+
+function createGrid(size) {
+  // 1. Limpiar grid anterior
+  container.innerHTML = "";
+
+  // 2. Calcular tamaño de cada cuadro
+  const squareSize = 960 / size;
+
+  // 3. Crear los cuadros
+  for (let i = 0; i < size * size; i++) {
+    const square = document.createElement("div");
+
+    square.style.width = `${squareSize}px`;
+    square.style.height = `${squareSize}px`;
+    square.style.border = "1px solid black";
+    square.style.boxSizing = "border-box";
+
+    // Evento hover
+    square.addEventListener("mouseover", () => {
+      square.style.backgroundColor = "black";
+    });
+
+    container.appendChild(square);
+  }
+}
+
+const button = document.querySelector("#resizeBtn");
+
+button.addEventListener("click", () => {
+  let size = prompt("¿Cuántos cuadros por lado? (máx 100)");
+
+  // limitar a 100
+  if (size > 100) size = 100;
+
+  createGrid(size);
+});
+
+</script>
+</body>
+</html>
