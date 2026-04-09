@@ -40,11 +40,13 @@ function createGrid(size) {
 
 const button = document.querySelector("#resizeBtn");
 
-button.addEventListener("click", () => {
-  let size = prompt("¿Cuántos cuadros por lado? (máx 100)");
+resizeBtn.addEventListener("click", () => {
+  let size = parseInt(prompt("Ingresa el número de cuadros por lado (máx 100)"));
 
-  // limitar a 100
-  if (size > 100) size = 100;
+  if (isNaN(size) || size <= 0 || size > 100) {
+    alert("Ingresa un número válido entre 1 y 100");
+    return;
+  }
 
   createGrid(size);
 });
