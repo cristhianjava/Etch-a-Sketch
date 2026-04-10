@@ -11,7 +11,12 @@
   <div id="container"></div>
 
 <script>
-    const container = document.querySelector("#container");
+
+  //variables globales
+  let isMouseDown = false;
+
+
+  const container = document.querySelector("#container");
 
 function createGrid(size) {
   // 1. Limpiar grid anterior
@@ -31,8 +36,17 @@ function createGrid(size) {
 
     // Evento hover
     square.addEventListener("mouseover", () => {
+      if (!isMouseDown)
       square.style.backgroundColor = "black";
     });
+
+    document.addEventListener("mousedown", () => {
+    isMouseDown = true;
+    });
+
+    document.addEventListener("mouseup", () => {
+    isMouseown = false;
+      });
 
     container.appendChild(square);
   }
@@ -50,6 +64,7 @@ resizeBtn.addEventListener("click", () => {
 
   createGrid(size);
 });
+
 
 </script>
 </body>
