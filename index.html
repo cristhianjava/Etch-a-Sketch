@@ -44,7 +44,7 @@ function createGrid(size) {
 
     // Evento hover
     square.addEventListener("mouseover", () => {
-      if (!isMouseDown)
+      if (isMouseDown)
       square.style.backgroundColor = "black";
     });
 
