@@ -15,6 +15,14 @@
   //variables globales
   let isMouseDown = false;
 
+  document.addEventListener("mousedown", () => {
+    isMouseDown = true;
+    });
+
+  document.addEventListener("mouseup", () => {
+    isMouseDown = false;
+      });
+
 
   const container = document.querySelector("#container");
 
@@ -40,19 +48,11 @@ function createGrid(size) {
       square.style.backgroundColor = "black";
     });
 
-    document.addEventListener("mousedown", () => {
-    isMouseDown = true;
-    });
-
-    document.addEventListener("mouseup", () => {
-    isMouseown = false;
-      });
-
     container.appendChild(square);
   }
 }
 
-const button = document.querySelector("#resizeBtn");
+const resizeBtn = document.querySelector("#resizeBtn");
 
 resizeBtn.addEventListener("click", () => {
   let size = parseInt(prompt("Ingresa el número de cuadros por lado (máx 100)"));
